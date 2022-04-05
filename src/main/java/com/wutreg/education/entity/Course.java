@@ -5,15 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "courses")
 public class Course {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
+
     @ManyToMany
     private List<Goal> goals = new ArrayList<>();
+
     @OneToMany
+    @JoinColumn(name = "course_id")
     private List<Task> tasks = new ArrayList<>();
 
     public Long getId() {

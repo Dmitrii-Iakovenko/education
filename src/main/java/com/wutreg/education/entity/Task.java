@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "tasks")
 public class Task {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,10 +14,13 @@ public class Task {
     private LocalDate date;
     private Duration spentTime;
     private Boolean completed;
+
     @OneToOne
     private Goal goal;
+
     @OneToOne
     private Course course;
+
     @ManyToOne(optional = false)
     private User user;
 

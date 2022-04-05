@@ -12,11 +12,17 @@ public class User {
     private Long id;
     private String username;
     private String password;
+
     @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Goal> goals = new ArrayList<>();
+
     @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Course> courses = new ArrayList<>();
+
     @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Task> tasks = new ArrayList<>();
 
     public Long getId() {

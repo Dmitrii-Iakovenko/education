@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-// create table goal
+@Table(name = "goals")
 public class Goal {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    @ManyToMany
+
+    @ManyToMany (mappedBy = "goals")
     private List<Course> courses = new ArrayList<>();
 
     public Long getId() {
