@@ -15,7 +15,7 @@ public class Task {
     private Duration spentTime;
     private Boolean completed;
 
-    @OneToOne
+    @ManyToOne
     private Goal goal;
 
     @OneToOne
